@@ -13,7 +13,8 @@ const getAddresses = async () => {
 
   const { data } = await axios.get(`${api}/api/address`, {
     headers: {
-      cookie: `next-auth.session-token=${nextAuthSessionToken?.value}`
+      cookie: `next-auth.session-token=${nextAuthSessionToken?.value}`,
+      secure: process.env.NODE_ENV === 'production',
     }
   })
 
