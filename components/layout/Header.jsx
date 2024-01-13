@@ -154,7 +154,7 @@ const Header = () => {
                                                     </Link>
                                                 )}
                                             </Menu.Item>
-                                            <Menu.Item>
+                                            {user && <Menu.Item>
                                                 {({ active }) => (
                                                     <button
                                                         onClick={handleSignOut}
@@ -163,7 +163,7 @@ const Header = () => {
                                                         Sign out
                                                     </button>
                                                 )}
-                                            </Menu.Item>
+                                            </Menu.Item>}
                                         </Menu.Items>
                                     </Transition>
                                 </Menu>
