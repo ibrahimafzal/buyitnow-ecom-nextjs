@@ -3,10 +3,6 @@ import User from "@/backend/models/user"
 import bcrypt from "bcryptjs"
 import dbConnect from "@/backend/config/dbConnect";
 import CredentialsProvider from "next-auth/providers/credentials";
-import GoogleProvider from "next-auth/providers/google"
-
-const GOOGLE_CLIENT_ID = process.env.CLIENT_ID
-const GOOGLE_CLIENT_SECRET = process.env.CLIENT_SECRET
 
 export const authOption = {
     session: {
