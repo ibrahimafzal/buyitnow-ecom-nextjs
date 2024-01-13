@@ -7,23 +7,15 @@ import { cookies } from "next/headers"
 const getAddresses = async () => {
 
   const api = process.env.api_path
-
+  
   const nextCookies = cookies()
   const nextAuthSessionToken = nextCookies.get('next-auth.session-token')
-  console.log("nextAuthSessionToken => ", nextAuthSessionToken)
-
-  const headers = nextAuthSessionToken ? { cookie: `next-auth.session-token=${nextAuthSessionToken?.value}` } : {};
 
   const { data } = await axios.get(`${api}/api/address`, {
-    headers,
-  });
-
-
-  // const { data } = await axios.get(`${api}/api/address`, {
-  //   headers: {
-  //     cookie: `next-auth.session-token=${nextAuthSessionToken?.value}`
-  //   }
-  // })
+    headers: {
+      cookie: `next-auth.session-token=${nextAuthSessionToken?.value}`
+    }
+  })
 
   return data?.addresses
 }
